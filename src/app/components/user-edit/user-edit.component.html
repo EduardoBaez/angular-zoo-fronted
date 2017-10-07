@@ -1,0 +1,52 @@
+<div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center">{{user.name}} {{user.surname}}</h1>
+    <br>
+
+    <div *ngIf="status == 'success'" class="alert alert-success">
+        Datos modificados correctamente.
+    </div>
+    <div *ngIf="status == 'error'" class="alert alert-danger">
+        Error, no se pudieron actualizar los datos.
+    </div>    
+    
+    <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-10 col-md-offset-1">
+        <div class="form-group">
+            <div *ngIf="user.image" class="avatar-user-edit">
+                <img src="{{ url + 'get-image-file/' + user.image }}">
+            </div>
+            <div *ngIf="!user.image" class="avatar-user-vacio">
+                Aun no tienes foto de perfil
+            </div>
+
+            <div class="file-mis-datos">
+                <input class="input-file" name="file" type="file" (change)="fileChangeEvent($event)">
+                <label *ngIf="!user.image" class="input-file-text" for="file">Subir Imagen</label>
+                <label *ngIf="user.image" class="input-file-text" for="file">Editar Imagen</label>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="sr-only">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" placeholder="Nombre" required>
+            <span *ngIf="!name.valid && name.touched">
+                Nombre obligatorio
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="surname" class="sr-only">Apellidos</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" placeholder="Apellidos" required>
+            <span *ngIf="!surname.valid && surname.touched">
+                Apellidos obligatorios
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="email" class="sr-only">Correo electrónico</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Correo electrónico" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+            <span *ngIf="!email.valid && email.touched">
+                Correo electrónico incorrecto
+            </span>
+        </div>
+        <input type="submit" value="{{titulo}}" class="btn btn-primary" [disabled]="!userEditForm.form.valid"/>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="col-md-10">
+    <h2>{{titulo}}</h2>  
+
+    <form #addForm="ngForm" (ngSubmit)="onSubmit()"  class="col-md-10 top30">
+        <div *ngIf="status == 'success'" class="alert alert-success">
+            Animal registrado exitosamente.
+        </div>
+        <div *ngIf="status == 'error'" class="alert alert-danger">
+            Error, animal no registrado.
+        </div> 
+
+        <div class="form-group">
+            <label for="name" class="sr-only">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="animal.name" class="form-control" placeholder="Nombre" required>
+            <span *ngIf="!name.valid && name.touched">
+                Nombre obligatorio
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="year" class="sr-only">Año de Nacimiento</label>
+            <input type="text" name="year" #year="ngModel" [(ngModel)]="animal.year" class="form-control" placeholder="Año de Nacimiento" required>
+            <span *ngIf="!year.valid && year.touched">
+                Año obligatorio
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="description" class="sr-only">Descripción</label>
+            <input type="text" name="description" #description="ngModel" [(ngModel)]="animal.description" class="form-control" placeholder="Descripción" required>
+            <span *ngIf="!description.valid && description.touched">
+                Descripción obligatoria
+            </span>
+        </div>
+        <div *ngIf="is_edit" class="image-edit-animal">
+            <img src="{{ url + '/get-image-animal/' + animal.image}}" alt="">
+        </div>
+        <div class="file-animal">
+            <input class="input-file" name="file" type="file" (change)="fileChangeEvent($event)">
+            <label class="input-file-text" for="file">Subir Imagen</label>
+        </div>
+        <input type="submit" class="btn btn-success" value="{{titulo}}">
+    </form>
+</div>

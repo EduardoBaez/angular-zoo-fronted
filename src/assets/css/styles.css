@@ -1,0 +1,38 @@
+body{background: #eee;}
+
+/* HEADER */
+.pointer{cursor: pointer;}
+.navigation{margin-top: 16px; box-shadow: 1px 3px 4px rgba(0,0,0,.1);}
+.navbar-nav li a{border-bottom: 3px solid transparent;}
+.navbar-nav .active{border-bottom: 3px solid #5595ed;}
+.navbar-nav .active span{color: #5595ed;}
+.nav-signup{padding-right: 18px;}
+.avatar{width: 42px; height: 42px; border-radius: 50%; overflow: hidden; margin: 6px 2px 0px 0px;}
+.avatar img{height: 100%;}
+
+/* MIS DATOS */
+.avatar-user-edit{width: 130px; height: 130px; border-radius: 50%; overflow: hidden; margin: 10px auto; box-shadow: 3px 3px 7px rgba(0,0,0,.2);}
+.avatar-user-edit img{height: 100%;}
+.avatar-user-vacio{text-align: center;}
+.file-mis-datos{width: 120px; margin: 10px auto;}
+.file-mis-datos input{width: 120px; opacity: 0; position: absolute; z-index: 2; cursor: pointer;}
+.file-mis-datos input + label{transition: 300ms; font-size: 11px; background: #999; color: #fff; border: 1px solid #999; width: 120px; padding: 2px 0; text-align: center; border-radius: 6px; box-shadow: 2px 3px 3px rgba(0,0,0,.1);}
+.input-file:hover+.input-file-text {background: #777; color: #fff;}
+.text-center{text-align: center;}
+
+/* Panel de Administración */
+.top30{margin-top: 30px;}
+.top34{margin-top: 40px;}
+.file-animal{width: 120px; margin-bottom: 12px;}
+.file-animal input{width: 120px; opacity: 0; position: absolute; z-index: 2; cursor: pointer;}
+.file-animal input + label{transition: 300ms; font-size: 11px; background: #999; color: #fff; border: 1px solid #999; width: 120px; padding: 2px 0; text-align: center; border-radius: 6px; box-shadow: 2px 3px 3px rgba(0,0,0,.1);}
+.input-file:hover+.input-file-text {background: #777; color: #fff;}
+.image-edit-animal{padding: 10px 0; overflow: hidden;}
+.image-edit-animal img{width: 30%; border-radius: 4px; min-width: 150px;}
+
+/* Animal */
+.mask-img-animal{width: 100%; overflow: hidden; text-align: center;}
+.mask-img-animal img{max-height: 40vh;}
+.thumbnail{padding: 0; border: none; text-align: center;}
+.caption h3 a{text-decoration: none; color: #555; transition: 300ms;}
+.caption h3 a:hover{color: #444; letter-spacing: 2px;}

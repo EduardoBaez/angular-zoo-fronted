@@ -1,0 +1,33 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>{{titulo}}</h2>
+    <br>
+
+    <div *ngIf="status == 'success'" class="alert alert-success">
+        Haz iniciado sesión correctamente.
+    </div>
+    <div *ngIf="status == 'error'" class="alert alert-danger">
+        Error, login incorrecto.
+    </div>
+
+    <form #loginForm="ngForm" (submit)="onSubmit()" class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+            <label for="email" class="sr-only">Correo electrónico</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Correo electrónico" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+            <span *ngIf="!email.valid && email.touched">
+                    Correo electrónico incorrecto
+            </span>
+        </div>
+
+        <div class="form-group">
+                <label for="password" class="sr-only">Contraseña</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" placeholder="Contraseña" required>
+                <span *ngIf="!password.valid && password.touched">
+                        Contraseña incorrecta
+                </span>
+        </div>
+        <input type="submit" value="{{titulo}}" class="btn btn-primary" [disabled]="!loginForm.form.valid"/>
+    </form>
+
+
+
+</div>
